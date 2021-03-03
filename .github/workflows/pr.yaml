@@ -186,3 +186,223 @@ jobs:
           ./gradlew publishToMavenLocal -x signMavenPublication
       - name: Test
         run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test11:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test12:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test13:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test14:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test15:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test16:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test18:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test19:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
+
+  smoke-test20:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: setup-test-java
+        name: Set up JDK 8 for running Gradle
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build otel-fork
+        run: |
+          git submodule init
+          git submodule update
+          cd otel
+          # TODO why does this error only happen in GHA, without "-x signMavenPublication"?
+          #   "Cannot perform signing task ':instrumentation-api:signMavenPublication' because it has no configured signatory"
+          ./gradlew publishToMavenLocal -x signMavenPublication
+      - name: Test
+        run: ./gradlew :test:smoke:testApps:WebFlux:smokeTest --no-daemon
