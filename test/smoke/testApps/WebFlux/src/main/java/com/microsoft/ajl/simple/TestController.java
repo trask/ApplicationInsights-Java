@@ -17,6 +17,7 @@ public class TestController {
 
     @GetMapping("/test/**")
     public Mono<String> test() {
+        System.out.println("HERE123!!!");
         CompletableFuture<String> completableFuture = new CompletableFuture<>();
         Executors.newSingleThreadExecutor().execute(() -> {
             try {
