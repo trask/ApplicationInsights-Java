@@ -27,22 +27,4 @@ public class TestController {
         });
         return Mono.fromFuture(completableFuture);
     }
-
-    @GetMapping("/exception")
-    public Mono<String> exception() {
-        throw new RuntimeException("oops!");
-    }
-
-    @GetMapping("/futureException")
-    public Mono<String> futureException() {
-        CompletableFuture<String> completableFuture = new CompletableFuture<>();
-        Executors.newSingleThreadExecutor().execute(() -> {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ignored) {
-            }
-            completableFuture.completeExceptionally(new RuntimeException("oops!"));
-        });
-        return Mono.fromFuture(completableFuture);
-    }
 }

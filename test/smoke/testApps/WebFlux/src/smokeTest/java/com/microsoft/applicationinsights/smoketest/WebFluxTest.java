@@ -28,38 +28,4 @@ public class WebFluxTest extends AiSmokeTest {
         assertEquals("/test/**", rd.getName());
         assertEquals("200", rd.getResponseCode());
     }
-
-    @Test
-    @TargetUri("/exception")
-    public void testException() throws Exception {
-        List<Envelope> rdList = mockedIngestion.waitForItems("RequestData", 1);
-
-        Envelope rdEnvelope = rdList.get(0);
-        String operationId = rdEnvelope.getTags().get("ai.operation.id");
-
-        mockedIngestion.waitForItemsInOperation("RemoteDependencyData", 1, operationId);
-
-        RequestData rd = (RequestData) ((Data<?>) rdEnvelope.getData()).getBaseData();
-
-        assertFalse(rd.getSuccess());
-        assertEquals("/exception", rd.getName());
-        assertEquals("500", rd.getResponseCode());
-    }
-
-    @Test
-    @TargetUri("/futureException")
-    public void testFutureException() throws Exception {
-        List<Envelope> rdList = mockedIngestion.waitForItems("RequestData", 1);
-
-        Envelope rdEnvelope = rdList.get(0);
-        String operationId = rdEnvelope.getTags().get("ai.operation.id");
-
-        mockedIngestion.waitForItemsInOperation("RemoteDependencyData", 1, operationId);
-
-        RequestData rd = (RequestData) ((Data<?>) rdEnvelope.getData()).getBaseData();
-
-        assertFalse(rd.getSuccess());
-        assertEquals("/futureException", rd.getName());
-        assertEquals("500", rd.getResponseCode());
-    }
 }
