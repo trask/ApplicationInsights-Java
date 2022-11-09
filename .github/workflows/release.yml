@@ -25,14 +25,19 @@ jobs:
 
       - name: Create pull request against main
         env:
-          # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
-          GITHUB_TOKEN: ${{ secrets.READ_ONLY_TOKEN }}
+          # TODO (trask) switch to fine-grained personal access token once they support graphql
+          #              see https://github.com/community/community/discussions/36441
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           message="Update version to $NEXT_VERSION"
           body="Update version to \`$NEXT_VERSION\`."
           branch="automation/update-version-to-${NEXT_VERSION}"
 
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$branch"
           git commit -a -m "$message"
-          git push origin HEAD:$branch
+          git push --set-upstream origin HEAD:$branch
           gh pr create --title "$message" \
                        --body "$body"
