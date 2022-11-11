@@ -62,7 +62,7 @@ val CORE_DEPENDENCIES = listOf(
   "com.squareup.moshi:moshi-adapters:1.11.0",
   "io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:otelInstrumentationAlphaVersion",
   "io.opentelemetry.javaagent:opentelemetry-javaagent-bootstrap:otelInstrumentationAlphaVersion",
-  "io.opentelemetry.javaagent:opentelemetry-javaagent-tooling:otelInstrumentationAlphaVersion",
+  "io.opentelemetry.javaagent:opentelemetry-javaagent-tooling:0.16.1",
   // temporarily overriding transitive dependency from azure-core until next azure-core release
   "io.projectreactor.netty:reactor-netty-http:1.1.0"
 )
