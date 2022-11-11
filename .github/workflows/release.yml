@@ -5,6 +5,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.create-github-release.outputs.version }}
     steps:
       - uses: actions/checkout@v3
 
@@ -33,7 +35,8 @@ jobs:
             sleep 60
           done
 
-      - name: Create GitHub release
+      - id: create-github-release
+        name: Create GitHub release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -51,6 +54,16 @@ jobs:
                             --draft \
                             $VERSION \
                             applicationinsights-agent-$VERSION.jar
+
+          echo "::set-output name=version::$VERSION"
+
+  create-docs-pull-request:
+    needs: release
+    uses: ./.github/workflows/reusable-create-docs-pull-request.yml
+    with:
+      version: ${{ needs.release.outputs.version }}
+    secrets:
+      AARON_MAXWELL_TOKEN: ${{ secrets.AARON_MAXWELL_TOKEN }}
 
   bump-version:
     runs-on: ubuntu-latest
