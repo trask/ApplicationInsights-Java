@@ -5,14 +5,7 @@ on:
 
 jobs:
   comment-driven-automation:
-    if: |
-      github.event.issue.pull_request &&
-      (
-        startsWith(github.event.comment.body, '/spotless') ||
-        startsWith(github.event.comment.body, '/license') ||
-        startsWith(github.event.comment.body, '/lockfile') ||
-        startsWith(github.event.comment.body, '/help')
-      )
+    #if: github.event.pull_request.user.login == 'dependabot'
 
     runs-on: ubuntu-latest
     steps:
