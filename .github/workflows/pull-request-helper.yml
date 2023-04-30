@@ -28,7 +28,7 @@ jobs:
       - name: Set git user
         run: |
           git config user.name github-actions[bot]
-          git config user.email github-action[bot]@users.noreply.github.com
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       # - name: Spotless
       #   env:
@@ -53,6 +53,7 @@ jobs:
           # there's always going to one line difference due to the timestamp included in the report
           if [[ $(git diff --cached --shortstat licenses) == " 1 file changed, 1 insertion(+), 1 deletion(-)" ]]
           then
+            git reset HEAD licenses
             git checkout -- licenses
             exit 0 # success
           fi
