@@ -1,6 +1,6 @@
 name: Pull request helper
 on:
-  pull_request:
+  pull_request_target:
 
 jobs:
   pull-request-helper:
@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          # this is the personal access token used for "git push" below
+          # which is needed in order to trigger workflows
+          token: ${{ secrets.PR_HELPER_GITHUB_TOKEN }}
 
       - name: Check out PR branch
         env:
@@ -15,8 +19,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr checkout $NUMBER
-          echo this here
-          echo ${{ github.event.pull_request.user.login }}
 
       - name: Set up Gradle cache
         uses: gradle/gradle-build-action@v2
@@ -28,24 +30,23 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email github-action[bot]@users.noreply.github.com
 
-      #      - name: Spotless
-      #        env:
-      #          NUMBER: ${{ github.event.issue.number }}
-      #          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #        run: |
-      #          ./gradlew spotlessApply
-      #          if git diff --quiet; then
-      #            gh pr comment $NUMBER --body "Already up-to-date"
-      #            exit 0 # success
-      #          fi
-      #          git commit -a -m "./gradlew spotlessApply"
-      #          git push
-      #          gh pr comment $NUMBER --body 'A commit has been pushed to this PR to update the formatting (`./gradlew spotlessApply`)'
+      # - name: Spotless
+      #   env:
+      #     NUMBER: ${{ github.event.issue.number }}
+      #     GH_TOKEN: ${{ github.token }}
+      #   run: |
+      #     ./gradlew spotlessApply
+      #     if git diff --quiet; then
+      #       exit 0 # success
+      #     fi
+      #     git commit -a -m "./gradlew spotlessApply"
+      #     git push
+      #     gh pr comment $NUMBER --body 'A commit has been pushed to this PR to update the formatting (`./gradlew spotlessApply`)'
 
       - name: Update license report
         env:
           NUMBER: ${{ github.event.issue.number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           ./gradlew generateLicenseReport
           git add licenses
@@ -62,7 +63,7 @@ jobs:
       - name: Update lock files
         env:
           NUMBER: ${{ github.event.issue.number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           ./gradlew resolveAndLockAll --write-locks
           git add "*.lockfile"
