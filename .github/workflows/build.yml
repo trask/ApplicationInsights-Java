@@ -14,12 +14,3 @@ concurrency:
 jobs:
   common:
     uses: ./.github/workflows/build-common.yml
-
-  required-status-check:
-    needs:
-      - common
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - if: needs.common.result != 'success'
-        run: exit 1
