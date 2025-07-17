@@ -2,6 +2,7 @@
 /.gradle/
 /buildSrc/.gradle/
 /buildSrc/.kotlin/
+/perf-tests/.gradle/
 build/
 
 # Intellij
