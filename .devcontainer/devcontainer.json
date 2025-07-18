@@ -8,7 +8,7 @@
     },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postCreateCommand": "./gradlew classes --no-daemon",
+  "updateContentCommand": "./gradlew classes --no-daemon",
   "customizations": {
     "vscode": {
       "extensions": [
