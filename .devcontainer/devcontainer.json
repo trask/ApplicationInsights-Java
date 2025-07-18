@@ -1,6 +1,9 @@
 {
   "name": "Application Insights Java Development Environment",
-  "image": "ghcr.io/microsoft/applicationinsights-java/devcontainer:latest",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "customizations": {
     "vscode": {
       "extensions": [
