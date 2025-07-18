@@ -1,9 +1,14 @@
 {
   "name": "Application Insights Java Development Environment",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "jdkDistro": "ms"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
+  "postCreateCommand": "./gradlew classes --no-daemon",
   "customizations": {
     "vscode": {
       "extensions": [
