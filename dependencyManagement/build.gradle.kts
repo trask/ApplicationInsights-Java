@@ -64,14 +64,12 @@ val CORE_DEPENDENCIES = listOf(
 val DEPENDENCIES = listOf(
   "ch.qos.logback:logback-classic:1.3.15", // logback 1.4+ requires Java 11+
   "ch.qos.logback.contrib:logback-json-classic:0.1.5",
-  "com.uber.nullaway:nullaway:0.12.7",
   "commons-codec:commons-codec:1.18.0",
   "org.apache.commons:commons-text:1.13.1",
   "com.google.code.gson:gson:2.13.1",
   "com.azure:azure-core-test:1.26.2", // this is not included in azure-sdk-bom
   "org.assertj:assertj-core:3.27.3",
   "org.awaitility:awaitility:4.3.0",
-  "io.github.hakky54:logcaptor:2.11.0",
   "io.opentelemetry.contrib:opentelemetry-jfr-connection:${otelContribVersion}-alpha",
   "io.opentelemetry.contrib:opentelemetry-runtime-attach-core:${otelContribVersion}-alpha",
   "com.google.code.findbugs:jsr305:3.0.2",
