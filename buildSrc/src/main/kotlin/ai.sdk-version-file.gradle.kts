@@ -2,7 +2,7 @@ plugins {
   `java-library`
 }
 
-val sdkVersionDir = "${buildDir}/generated/resources/sdk-version"
+val sdkVersionDir = "${layout.buildDirectory.get()}/generated/resources/sdk-version"
 
 abstract class GenerateVersionResourceTask : DefaultTask() {
   @get:Input
