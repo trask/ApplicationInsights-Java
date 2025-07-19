@@ -2,7 +2,7 @@ plugins {
   `java-library`
 }
 
-val sdkVersionDir = "${buildDir}/generated/resources/sdk-version"
+val sdkVersionDir = layout.buildDirectory.dir("generated/resources/sdk-version")
 
 abstract class GenerateVersionResourceTask : DefaultTask() {
   @get:Input
@@ -22,7 +22,7 @@ abstract class GenerateVersionResourceTask : DefaultTask() {
 tasks {
   register<GenerateVersionResourceTask>("generateVersionResource") {
     projectVersion.set(project.version.toString())
-    outputDirectory.set(File(sdkVersionDir))
+    outputDirectory.set(sdkVersionDir)
   }
 }
 
