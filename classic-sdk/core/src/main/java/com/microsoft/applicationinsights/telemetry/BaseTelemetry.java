@@ -15,7 +15,11 @@ public abstract class BaseTelemetry implements Telemetry {
 
   protected BaseTelemetry() {}
 
-  /** Initializes the instance with the context properties */
+  /** 
+   * Initializes the instance with the context properties.
+   * 
+   * @param properties the properties to initialize the context with
+   */
   protected void initialize(ConcurrentMap<String, String> properties) {
     context = new TelemetryContext(properties, new ContextTagsMap());
   }
@@ -39,7 +43,7 @@ public abstract class BaseTelemetry implements Telemetry {
   }
 
   /**
-   * Gets a dictionary of application-defined property names and values providing additional
+   * Gets a map of application-defined property names and values providing additional
    * information about this event.
    */
   @Override

@@ -123,12 +123,12 @@ public final class TelemetryContext {
     return null;
   }
 
-  /** Gets a dictionary of application-defined property values. */
+  /** Gets a map of application-defined property values. */
   public ConcurrentMap<String, String> getProperties() {
     return properties;
   }
 
-  /** Gets a dictionary of context tags. */
+  /** Gets a map of context tags. */
   public ConcurrentMap<String, String> getTags() {
     return tags;
   }

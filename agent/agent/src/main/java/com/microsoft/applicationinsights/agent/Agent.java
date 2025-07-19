@@ -12,6 +12,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 // so that previous versions will be suppressed (current versions with the same class name are
 // suppressed
 // below via the alreadyLoaded flag
+/**
+ * Main entry point for the Application Insights Java agent. This class provides the premain and
+ * agentmain methods required for Java agent functionality, and wraps the OpenTelemetry agent with
+ * Application Insights-specific initialization.
+ */
 public class Agent {
 
   // this is to prevent the agent from loading and instrumenting everything twice
@@ -19,6 +24,12 @@ public class Agent {
   // appears multiple times on the command line
   private static final AtomicBoolean alreadyLoaded = new AtomicBoolean(false);
 
+  /**
+   * Entry point for Java agent when attached via -javaagent command line argument.
+   *
+   * @param agentArgs Agent arguments passed from the command line
+   * @param inst The Instrumentation instance provided by the JVM
+   */
   public static void premain(String agentArgs, Instrumentation inst) {
     if (alreadyLoaded.getAndSet(true)) {
       return;
@@ -38,12 +49,24 @@ public class Agent {
     OpenTelemetryAgent.premain(agentArgs, inst);
   }
 
-  // this is provided only for dynamic attach in the first line of main
-  // there are many problematic edge cases around dynamic attach any later than that
+  /**
+   * Entry point for dynamic agent attachment at runtime. This method is called when the agent
+   * is attached to a running JVM. It should only be called at the very beginning of the main method
+   * due to limitations and edge cases with dynamic attachment.
+   *
+   * @param agentArgs Agent arguments passed during attachment
+   * @param inst The Instrumentation instance provided by the JVM
+   */
   public static void agentmain(String agentArgs, Instrumentation inst) {
     premain(agentArgs, inst);
   }
 
+  /**
+   * Main method that provides information about proper agent usage when the JAR is executed
+   * directly instead of being used as a Java agent.
+   *
+   * @param args Command line arguments (not used)
+   */
   @SuppressWarnings("SystemOut")
   public static void main(String... args) {
     System.err.println(

@@ -21,6 +21,11 @@ import java.util.Date;
 import java.util.Map;
 import javax.annotation.Nullable;
 
+/**
+ * The primary interface for sending telemetry data to Azure Application Insights.
+ * This class provides methods to track various types of telemetry including events, 
+ * metrics, dependencies, requests, exceptions, and traces.
+ */
 public class TelemetryClient {
 
   private final TelemetryContext context = new TelemetryContext();
@@ -35,8 +40,10 @@ public class TelemetryClient {
     return false;
   }
 
+  /** Creates a new TelemetryClient instance. */
   public TelemetryClient() {}
 
+  /** Gets the context associated with this telemetry client. */
   public TelemetryContext getContext() {
     return context;
   }
