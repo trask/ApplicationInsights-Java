@@ -112,5 +112,5 @@ This can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
   [Warning](#Warning) section for details.
-- `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
+- `profile`. Uses the `profile.jfc` configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.

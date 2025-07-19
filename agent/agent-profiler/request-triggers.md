@@ -81,7 +81,7 @@ Each individual configuration is formed of:
   supported type).
 - `profileDuration` - The duration in seconds of the profile to be collected when this SLA is
   breached.
-- `threshold` - The threshould applied to the output of the aggregation, if this value is breached a
+- `threshold` - The threshold applied to the output of the aggregation, if this value is breached a
   profile will be triggered, i.e the `breach-ratio` aggregation outputs the percentage of requests
   that breach the SLA, a threshold of 0.95 would trigger a profile if 95% of requests breach the
   SLA.

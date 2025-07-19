@@ -36,13 +36,13 @@ from the OpenTelemetry Java Instrumentation project.
 See the [style guide](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/contributing/style-guideline.md).
 from the OpenTelemetry Java Instrumentation project.
 
-## Running a smoke test in Intellij
+## Running a smoke test in IntelliJ
 
 Pick the smoke test that you want to run, e.g. `MongoTest`.
 If the smoke test is abstract, then pick one of its subclasses, e.g. `MongoTest$Tomcat8Java8Test`.
 Right-click on it and select run.
 
-## Debugging a smoke test in Intellij
+## Debugging a smoke test in IntelliJ
 
 Add `-PsmokeTestRemoteDebug=true` to the gradle args, e.g.
 
@@ -52,7 +52,7 @@ Then create a Remote JVM Debug configuration, e.g.
 
 ![Create a Remote JVM Debug configuration](docs/intellij-debug-smoke-test-part-2.png)
 
-Then run (not debug) the smoke test as above in [Running the smoke tests from Intellij](#running-a-smoke-test-in-intellij).
+Then run (not debug) the smoke test as above in [Running the smoke tests from IntelliJ](#running-a-smoke-test-in-intellij).
 
 The JVM inside the container will wait remote debugger to be attached before starting.
 
