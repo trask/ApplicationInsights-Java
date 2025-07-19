@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
 
-// copied from OpenTelemetry Instrumentation 2.6.0
+// copied from OpenTelemetry Instrumentation 2.17.1
 
 /**
  * A builder of an {@link Instrumenter}.
