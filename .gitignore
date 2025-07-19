@@ -1,7 +1,6 @@
 # Gradle
 /.gradle/
 /buildSrc/.gradle/
-/buildSrc/.kotlin/
 build/
 
 # Intellij
