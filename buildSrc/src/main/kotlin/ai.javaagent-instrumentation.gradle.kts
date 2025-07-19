@@ -68,3 +68,8 @@ tasks.withType<Test>().configureEach {
     return@filter true
   }
 }
+
+// Fix configuration cache compatibility for ByteBuddy tasks
+tasks.matching { it.name == "byteBuddyJava" }.configureEach {
+  notCompatibleWithConfigurationCache("ByteBuddy tasks access Task.project at execution time")
+}
