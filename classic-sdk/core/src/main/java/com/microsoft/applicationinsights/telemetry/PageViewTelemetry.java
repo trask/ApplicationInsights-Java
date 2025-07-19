@@ -59,7 +59,7 @@ public final class PageViewTelemetry extends BaseTelemetry {
     data.setDuration(duration);
   }
 
-  /** Gets a dictionary of custom defined metrics. */
+  /** Gets a map of custom defined metrics. */
   public ConcurrentMap<String, Double> getMetrics() {
     return data.getMeasurements();
   }

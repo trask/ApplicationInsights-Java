@@ -73,7 +73,7 @@ public final class ExceptionTelemetry extends BaseTelemetry {
         : SeverityLevel.values()[data.getSeverityLevel().getValue()];
   }
 
-  /** Gets a dictionary of custom defined metrics. */
+  /** Gets a map of custom defined metrics. */
   public ConcurrentMap<String, Double> getMetrics() {
     return data.getMeasurements();
   }

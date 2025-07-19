@@ -63,7 +63,7 @@ public final class AvailabilityTelemetry extends BaseTelemetry {
     data.setMessage(message);
   }
 
-  /** Gets a dictionary of custom defined metrics. */
+  /** Gets a map of custom defined metrics. */
   public ConcurrentMap<String, Double> getMetrics() {
     return data.getMeasurements();
   }
