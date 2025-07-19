@@ -39,7 +39,7 @@ public abstract class BaseTelemetry implements Telemetry {
   }
 
   /**
-   * Gets a dictionary of application-defined property names and values providing additional
+   * Gets a map of application-defined property names and values providing additional
    * information about this event.
    */
   @Override

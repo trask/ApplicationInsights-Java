@@ -22,8 +22,8 @@ import javax.annotation.Nullable;
 public final class ApplicationInsights {
 
   /**
-   * This property allows configuring an Application Insights json file. It can be helpful to get an
-   * Application Insights json file by Spring profile.
+   * This property allows configuring an Application Insights JSON file. It can be helpful to load
+   * different Application Insights JSON files based on Spring profile.
    */
   public static final String APPLICATIONINSIGHTS_RUNTIME_ATTACH_CONFIGURATION_FILE =
       "applicationinsights.runtime-attach.configuration.classpath.file";
@@ -42,7 +42,7 @@ public final class ApplicationInsights {
    * Attach the Application Insights agent for Java to the current JVM. The attachment must be
    * requested at the beginning of the main method.
    *
-   * @throws ConfigurationException If the file given by the
+   * @throws ConfigurationException if the file specified by the
    *     applicationinsights.runtime-attach.configuration.classpath.file property was not found
    */
   public static void attach() {
