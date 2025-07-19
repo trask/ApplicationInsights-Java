@@ -60,7 +60,8 @@ flags is found inside `Edit->Advanced` of this user interface.
     1. Browse to the Performance -> Profiler section of the associated Application Insights instance.
     2. Select "Triggers"
     3. Configure the required CPU and Memory thresholds. And Apply.
-    4. Note, currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
+    4. Note, currently the Java profiler does not
+   support the "Sampling" trigger, configuring this will have no effect.
 
 Once this has been completed, the agent will monitor the resource usage of your process and
 trigger a profile when required. Once a profile has been triggered and completed, it will be

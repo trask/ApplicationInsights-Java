@@ -60,7 +60,7 @@ Then go to Run > Debug, and select your Remote JVM Debug configuration.
 
 ## Error prone
 
-While developing, if you find errorprone is getting in your way (e.g. it won't let you add
+While developing, if you find error-prone is getting in your way (e.g. it won't let you add
 `System.out.println` to your code), you can disable it by adding the following to your
 `~/.gradle/gradle.properties`:
 
