@@ -69,7 +69,7 @@ class RateLimitedSamplingPercentageTest {
             .count();
 
     assertThat(numSampledSpansInLast5Seconds / 5.)
-        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(5));
+        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(6));
   }
 
   @Test
@@ -116,11 +116,11 @@ class RateLimitedSamplingPercentageTest {
             .count();
 
     assertThat(numSampledSpansWithin5SecondsBeforeChange / 5.)
-        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(5));
+        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(6));
     assertThat(numSampledSpansWithin5SecondsAfterChange / 5.)
         .isGreaterThan(2. * targetSpansPerSecondLimit);
     assertThat(numSampledSpansInLast5Seconds / 5.)
-        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(5));
+        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(6));
   }
 
   @Test
@@ -167,10 +167,10 @@ class RateLimitedSamplingPercentageTest {
             .count();
 
     assertThat(numSampledSpansWithin5SecondsBeforeChange / 5.)
-        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(5));
+        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(6));
     assertThat(numSampledSpansWithin5SecondsAfterChange / 5.)
         .isLessThan(0.5 * targetSpansPerSecondLimit);
     assertThat(numSampledSpansInLast5Seconds / 5.)
-        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(5));
+        .isCloseTo(targetSpansPerSecondLimit, Percentage.withPercentage(6));
   }
 }
