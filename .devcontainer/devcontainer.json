@@ -15,6 +15,9 @@
         "redhat.java",
         "ms-vscode.vscode-json"
       ]
+    },
+    "settings": {
+      "extensions.autoInstall": false
     }
   }
 }
