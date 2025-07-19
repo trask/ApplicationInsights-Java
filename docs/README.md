@@ -60,8 +60,7 @@ flags is found inside `Edit->Advanced` of this user interface.
     1. Browse to the Performance -> Profiler section of the associated Application Insights instance.
     2. Select "Triggers"
     3. Configure the required CPU and Memory thresholds. And Apply.
-    4. Note, currently the Java profiler does not
-   support the "Sampling" trigger, configuring this will have no effect.
+    4. Note, currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
 
 Once this has been completed, the agent will monitor the resource usage of your process and
 trigger a profile when required. Once a profile has been triggered and completed, it will be
@@ -112,5 +111,5 @@ This can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
   [Warning](#Warning) section for details.
-- `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
+- `profile`. Uses the `profile.jfc` configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.

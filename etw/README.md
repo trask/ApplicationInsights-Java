@@ -37,7 +37,7 @@ Use the project property (`-P` option) `ai.etw.native.build` set to the desired 
 
 ## Enabling verbose logging
 
-The property `ai.etw.native.verbose` accepts a boolean value; when true, it enables verbose logging. This is done with preprocessor directives, so it must be rebuilt to enable. This slows execution time significantly under sufficient load. The build throws an error if this property is true for a relase build.
+The property `ai.etw.native.verbose` accepts a boolean value; when true, it enables verbose logging. This is done with preprocessor directives, so it must be rebuilt to enable. This slows execution time significantly under sufficient load. The build throws an error if this property is true for a release build.
 
 * compile
   * Compiles the C++ sources.
