@@ -13,7 +13,9 @@
     "vscode": {
       "extensions": [
         "redhat.java",
-        "ms-vscode.vscode-json"
+        "ms-vscode.vscode-json",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ]
     },
     "settings": {
