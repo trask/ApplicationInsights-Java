@@ -34,7 +34,7 @@ public final class MethodSingletons {
                 INSTRUMENTATION_NAME,
                 CodeSpanNameExtractor.create(codeAttributesGetter))
             .setInstrumentationVersion(
-                "1.25.0-alpha-applicationinsights") // TODO automate version or use upstream
+                "2.17.1-alpha-applicationinsights") // TODO automate version or use upstream
             .addAttributesExtractor(CodeAttributesExtractor.create(codeAttributesGetter))
             // START APPLICATION INSIGHTS MODIFICATIONS
             .buildInstrumenter(new MethodSpanKindExtractor());
