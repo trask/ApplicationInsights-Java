@@ -3,6 +3,7 @@ plugins {
 
   id("com.github.ben-manes.versions")
   id("ai.spotless-conventions")
+  id("com.autonomousapps.dependency-analysis")
 }
 
 val isRelease = (System.getProperty("isRelease") ?: "false").toBoolean()
