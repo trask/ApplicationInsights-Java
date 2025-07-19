@@ -39,8 +39,8 @@ public abstract class BaseTelemetry implements Telemetry {
   }
 
   /**
-   * Gets a map of application-defined property names and values providing additional
-   * information about this event.
+   * Gets a map of application-defined property names and values providing additional information
+   * about this event.
    */
   @Override
   public Map<String, String> getProperties() {
