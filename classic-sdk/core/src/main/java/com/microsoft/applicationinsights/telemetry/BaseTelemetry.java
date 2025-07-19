@@ -15,11 +15,7 @@ public abstract class BaseTelemetry implements Telemetry {
 
   protected BaseTelemetry() {}
 
-  /** 
-   * Initializes the instance with the context properties.
-   * 
-   * @param properties the properties to initialize the context with
-   */
+  /** Initializes the instance with the context properties */
   protected void initialize(ConcurrentMap<String, String> properties) {
     context = new TelemetryContext(properties, new ContextTagsMap());
   }

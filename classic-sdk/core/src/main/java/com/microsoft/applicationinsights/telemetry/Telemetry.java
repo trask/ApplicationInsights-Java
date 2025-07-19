@@ -9,31 +9,15 @@ import java.util.Map;
 /** The base telemetry type interface for application insights. */
 public interface Telemetry {
 
-  /** 
-   * Gets the time when telemetry was recorded.
-   * 
-   * @return the timestamp when this telemetry was recorded
-   */
+  /** Gets the time when telemetry was recorded */
   Date getTimestamp();
 
-  /** 
-   * Sets the time when telemetry was recorded.
-   * 
-   * @param date the timestamp when this telemetry was recorded
-   */
+  /** Sets the time when telemetry was recorded */
   void setTimestamp(Date date);
 
-  /** 
-   * Gets the context associated with this telemetry instance.
-   * 
-   * @return the telemetry context
-   */
+  /** Gets the context associated with this telemetry instance. */
   TelemetryContext getContext();
 
-  /** 
-   * Gets the map of application-defined property names and values.
-   * 
-   * @return the properties map
-   */
+  /** Gets the map of application-defined property names and values. */
   Map<String, String> getProperties();
 }
