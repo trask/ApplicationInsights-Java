@@ -9,7 +9,6 @@ dependencies {
 }
 
 val disableErrorProne = properties["disableErrorProne"]?.toString()?.toBoolean() ?: false
-val testLatestDeps = gradle.startParameter.projectProperties["testLatestDeps"] == "true"
 
 tasks {
   withType<JavaCompile>().configureEach {
@@ -23,8 +22,8 @@ tasks {
         disableWarningsInGeneratedCode.set(true)
         allDisabledChecksAsWarnings.set(true)
 
-        // Ignore warnings for generated and vendored classes
-        excludedPaths.set(".*/build/generated/.*|.*/concurrentlinkedhashmap/.*")
+        // Ignore warnings for generated classes
+        excludedPaths.set(".*/build/generated/.*")
 
         // it's very convenient to debug stuff in the javaagent using System.out.println
         // and we don't want to conditionally only check this in CI
@@ -132,13 +131,6 @@ tasks {
 
         // Needs Java 9+
         disable("JavaDurationGetSecondsToToSeconds")
-
-        if (testLatestDeps) {
-          // Some latest dep tests are compiled for java 17 although the base version uses an older
-          // version. Disable rules that suggest using new language features.
-          disable("StatementSwitchToExpressionSwitch")
-          disable("PatternMatchingInstanceof")
-        }
 
         if (name.contains("Jmh") || name.contains("Test")) {
           // Allow underscore in test-type method names
