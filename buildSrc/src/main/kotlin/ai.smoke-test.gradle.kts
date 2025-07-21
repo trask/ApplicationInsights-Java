@@ -104,8 +104,8 @@ tasks {
     doFirst {
 
       val appFile = aiSmokeTest.testAppArtifactDir.file(aiSmokeTest.testAppArtifactFilename.get()).get()
-      val javaagentFile = agent.singleFile
-      val old3xJavaagentFile = old3xAgent.singleFile
+      val javaagentFile = agent.elements.get().single().asFile
+      val old3xJavaagentFile = old3xAgent.elements.get().single().asFile
 
       // need to delay for project to configure the extension
       systemProperty("ai.smoke-test.test-app-file", appFile)

@@ -48,7 +48,7 @@ tasks {
   // its own duplicatesStrategy
   val isolateJavaagentLibs by registering(Copy::class) {
     dependsOn(relocateJavaagentLibs)
-    isolateClasses(relocateJavaagentLibs.get().outputs.files)
+    isolateClasses(relocateJavaagentLibs.get().archiveFile)
 
     into(layout.buildDirectory.dir("isolated/javaagentLibs"))
   }
@@ -81,11 +81,9 @@ tasks {
   }
 }
 
-fun CopySpec.isolateClasses(jars: Iterable<File>) {
-  jars.forEach {
-    from(zipTree(it)) {
-      into("inst")
-      rename("^(.*)\\.class\$", "\$1.classdata")
-    }
+fun CopySpec.isolateClasses(jars: Provider<RegularFile>) {
+  from(zipTree(jar)) {
+    into("inst")
+    rename("^(.*)\\.class\$", "\$1.classdata")
   }
 }

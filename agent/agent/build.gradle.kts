@@ -93,7 +93,7 @@ tasks {
   // its own duplicatesStrategy
   val isolateJavaagentLibs by registering(Copy::class) {
     dependsOn(relocateJavaagentLibs)
-    isolateClasses(relocateJavaagentLibs.get().outputs.files)
+    isolateClasses(relocateJavaagentLibs.get().archiveFile)
 
     into(layout.buildDirectory.dir("isolated/javaagentLibs"))
   }
@@ -200,17 +200,15 @@ licenseReport {
   filters = arrayOf(LicenseBundleNormalizer("$projectDir/license-normalizer-bundle.json", true))
 }
 
-fun CopySpec.isolateClasses(jars: Iterable<File>) {
-  jars.forEach {
-    from(zipTree(it)) {
-      into("inst")
-      rename("^(.*)\\.class\$", "\$1.classdata")
-      // Rename LICENSE file since it clashes with license dir on non-case sensitive FSs (i.e. Mac)
-      rename("""^LICENSE$""", "LICENSE.renamed")
-      // excluding pom.xml files that are embedded in several dependencies
-      // in order to avoid false positives from security scanners
-      exclude("META-INF/maven/**")
-    }
+fun CopySpec.isolateClasses(jars: Provider<RegularFile>) {
+  from(zipTree(jar)) {
+    into("inst")
+    rename("^(.*)\\.class\$", "\$1.classdata")
+    // Rename LICENSE file since it clashes with license dir on non-case sensitive FSs (i.e. Mac)
+    rename("""^LICENSE$""", "LICENSE.renamed")
+    // excluding pom.xml files that are embedded in several dependencies
+    // in order to avoid false positives from security scanners
+    exclude("META-INF/maven/**")
   }
   from("${rootProject.projectDir}/LICENSE") {
     into("META-INF")
