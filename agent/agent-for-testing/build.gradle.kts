@@ -81,7 +81,7 @@ tasks {
   }
 }
 
-fun CopySpec.isolateClasses(jars: Provider<RegularFile>) {
+fun CopySpec.isolateClasses(jar: Provider<RegularFile>) {
   from(zipTree(jar)) {
     into("inst")
     rename("^(.*)\\.class\$", "\$1.classdata")
