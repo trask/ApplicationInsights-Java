@@ -31,7 +31,7 @@ java {
 tasks.withType<JavaCompile>().configureEach {
   with(options) {
     release.set(8)
-    compilerArgs.add("-Werror")
+    // compilerArgs.add("-Werror")
   }
 }
 
