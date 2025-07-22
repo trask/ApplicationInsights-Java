@@ -40,6 +40,7 @@ import org.apache.commons.text.lookup.StringLookup;
 import org.apache.commons.text.lookup.StringLookupFactory;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("deprecation")
 public class ConfigurationBuilder {
 
   private static final String APPLICATIONINSIGHTS_CONFIGURATION_FILE =
@@ -141,6 +142,7 @@ public class ConfigurationBuilder {
     return config;
   }
 
+  @SuppressWarnings("deprecation")
   private static void logConfigurationWarnings(Configuration config) {
     if (config.instrumentation.micrometer.reportingIntervalSeconds != 60) {
       configurationLogger.warn(

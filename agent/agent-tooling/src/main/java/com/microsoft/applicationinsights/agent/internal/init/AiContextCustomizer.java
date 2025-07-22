@@ -34,6 +34,7 @@ public class AiContextCustomizer<R> implements ContextCustomizer<R> {
   }
 
   @Override
+  @SuppressWarnings("deprecation")
   public Context onStart(Context context, R request, Attributes startAttributes) {
 
     // TODO (trask) ideally would also check parentSpanContext !isValid || isRemote

@@ -59,6 +59,7 @@ public abstract class DelegatingLogData implements LogRecordData {
   }
 
   @Override
+  @SuppressWarnings("deprecation")
   public Body getBody() {
     return delegate.getBody();
   }

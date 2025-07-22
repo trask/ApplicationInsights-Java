@@ -7,6 +7,7 @@ import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.sdk.logs.data.Body;
 import io.opentelemetry.sdk.logs.data.LogRecordData;
 
+@SuppressWarnings("deprecation")
 public class MyLogData extends DelegatingLogData {
 
   private final Attributes attributes;

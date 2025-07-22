@@ -174,6 +174,7 @@ public class LazyHttpClient implements HttpClient {
         managedIdentityCredential.build(), aadAudienceWithScope);
   }
 
+  @SuppressWarnings("deprecation")
   private static HttpPipelinePolicy getAuthenticationPolicyWithClientSecret(
       Configuration.AadAuthentication configuration, String aadAudienceWithScope) {
     ClientSecretCredentialBuilder credential =

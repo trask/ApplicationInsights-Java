@@ -64,6 +64,7 @@ public class ServiceProfilerClient {
     return executePostWithRedirect(requestUrl).map(ServiceProfilerClient::getUploadAccess);
   }
 
+  @SuppressWarnings("deprecation")
   private static BlobAccessPass getUploadAccess(HttpResponse response) {
     try {
       if (response.getStatusCode() >= 300) {
@@ -82,6 +83,7 @@ public class ServiceProfilerClient {
     }
   }
 
+  @SuppressWarnings("deprecation")
   public Mono<HttpResponse> executePostWithRedirect(URL requestUrl) {
 
     HttpRequest request = new HttpRequest(HttpMethod.POST, requestUrl);

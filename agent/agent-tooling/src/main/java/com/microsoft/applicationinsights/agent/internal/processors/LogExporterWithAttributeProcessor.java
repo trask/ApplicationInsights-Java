@@ -34,6 +34,7 @@ public class LogExporterWithAttributeProcessor implements LogRecordExporter {
     return delegate.export(copy);
   }
 
+  @SuppressWarnings("deprecation")
   private LogRecordData process(LogRecordData log) {
     AgentProcessor.IncludeExclude include = attributeProcessor.getInclude();
     if (include != null && !include.isMatch(log.getAttributes(), log.getBody().asString())) {
