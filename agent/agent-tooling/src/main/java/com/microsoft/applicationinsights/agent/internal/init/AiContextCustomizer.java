@@ -34,7 +34,7 @@ public class AiContextCustomizer<R> implements ContextCustomizer<R> {
   }
 
   @Override
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // HTTP_TARGET attribute needed for context customization
   public Context onStart(Context context, R request, Attributes startAttributes) {
 
     // TODO (trask) ideally would also check parentSpanContext !isValid || isRemote

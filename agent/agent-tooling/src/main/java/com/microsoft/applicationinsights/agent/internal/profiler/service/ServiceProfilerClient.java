@@ -64,7 +64,7 @@ public class ServiceProfilerClient {
     return executePostWithRedirect(requestUrl).map(ServiceProfilerClient::getUploadAccess);
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // HttpResponse.getHeaderValue still needed for header access
   private static BlobAccessPass getUploadAccess(HttpResponse response) {
     try {
       if (response.getStatusCode() >= 300) {
@@ -83,7 +83,7 @@ public class ServiceProfilerClient {
     }
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // HttpRequest.setHeader method still needed for header configuration
   public Mono<HttpResponse> executePostWithRedirect(URL requestUrl) {
 
     HttpRequest request = new HttpRequest(HttpMethod.POST, requestUrl);

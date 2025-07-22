@@ -34,7 +34,7 @@ public class ExporterWithLogProcessor implements LogRecordExporter {
     return delegate.export(copy);
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // Using deprecated getBody() for log processing logic
   private LogRecordData process(LogRecordData log) {
     IncludeExclude include = logProcessor.getInclude();
     if (include != null && !include.isMatch(log.getAttributes(), log.getBody().asString())) {

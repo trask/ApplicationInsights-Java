@@ -7,7 +7,7 @@ import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.sdk.logs.data.Body;
 import io.opentelemetry.sdk.logs.data.LogRecordData;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation") // OpenTelemetry Body API is deprecated but interface still requires it
 public class MyLogData extends DelegatingLogData {
 
   private final Attributes attributes;

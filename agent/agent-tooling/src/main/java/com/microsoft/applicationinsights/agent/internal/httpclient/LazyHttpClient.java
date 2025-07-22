@@ -174,7 +174,7 @@ public class LazyHttpClient implements HttpClient {
         managedIdentityCredential.build(), aadAudienceWithScope);
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // Deprecated Azure AD config properties for backward compatibility
   private static HttpPipelinePolicy getAuthenticationPolicyWithClientSecret(
       Configuration.AadAuthentication configuration, String aadAudienceWithScope) {
     ClientSecretCredentialBuilder credential =

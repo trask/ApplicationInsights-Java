@@ -59,7 +59,7 @@ public abstract class DelegatingLogData implements LogRecordData {
   }
 
   @Override
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // LogRecordData interface still returns deprecated Body type
   public Body getBody() {
     return delegate.getBody();
   }

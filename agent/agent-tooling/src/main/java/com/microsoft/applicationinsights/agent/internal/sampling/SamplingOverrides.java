@@ -122,7 +122,7 @@ public class SamplingOverrides {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation") // HTTP_TARGET semantic convention still needed for backward compatibility
     public boolean test(
         Attributes attributes, LazyHttpUrl lazyHttpUrl, LazyHttpTarget lazyHttpTarget) {
       String val = MatcherGroup.getValueIncludingThreadName(attributes, key);
@@ -214,7 +214,7 @@ public class SamplingOverrides {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation") // HTTP_TARGET needed for backward compatibility with existing sampling rules
     public boolean test(
         Attributes attributes,
         @Nullable LazyHttpUrl lazyHttpUrl,
@@ -249,7 +249,7 @@ public class SamplingOverrides {
     }
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // HTTP_URL still needed for semantic convention compatibility
   private static boolean getHttpUrlKeyOldOrStableSemconv(AttributeKey<String> key) {
     String keyString = key.getKey();
     return keyString.equals(HttpIncubatingAttributes.HTTP_URL.getKey())

@@ -71,7 +71,7 @@ public class LogProcessor extends AgentProcessor {
 
   // fromAttributes represents the attribute keys to pull the values from to generate the new log
   // body.
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // Body.string() method still required for creating log body content
   public LogRecordData processFromAttributes(LogRecordData log) {
     if (logHasAllFromAttributeKeys(log, fromAttributes)) {
       StringBuilder updatedLogBuffer = new StringBuilder();
@@ -93,7 +93,7 @@ public class LogProcessor extends AgentProcessor {
 
   // The following function extracts attributes from log name and replaces extracted parts with
   // attribute names
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // getBody() method deprecated but still needed for string conversion
   public LogRecordData processToAttributes(LogRecordData log) {
     if (toAttributeRulePatterns.isEmpty()) {
       return log;

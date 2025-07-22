@@ -40,7 +40,7 @@ import org.apache.commons.text.lookup.StringLookup;
 import org.apache.commons.text.lookup.StringLookupFactory;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation") // Intentional use of deprecated Configuration classes for backward compatibility
 public class ConfigurationBuilder {
 
   private static final String APPLICATIONINSIGHTS_CONFIGURATION_FILE =
@@ -142,7 +142,7 @@ public class ConfigurationBuilder {
     return config;
   }
 
-  @SuppressWarnings("deprecation")
+  @SuppressWarnings("deprecation") // Migration path from InstrumentationKeyOverride to ConnectionStringOverride
   private static void logConfigurationWarnings(Configuration config) {
     if (config.instrumentation.micrometer.reportingIntervalSeconds != 60) {
       configurationLogger.warn(
