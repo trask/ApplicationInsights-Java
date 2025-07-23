@@ -236,7 +236,6 @@ public class AiConfigCustomizer implements Function<ConfigProperties, Map<String
       }
       if (config.instrumentation.jdbc.captureQueryParameters) {
         properties.put("otel.instrumentation.jdbc.capture-query-parameters", "true");
-        System.out.println("DEBUG: Setting otel.instrumentation.jdbc.capture-query-parameters=true");
       }
     }
     if (config.instrumentation.jms.enabled) {
