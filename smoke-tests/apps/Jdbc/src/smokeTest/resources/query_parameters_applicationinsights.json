@@ -1,0 +1,36 @@
+{
+  "role": {
+    "name": "testrolename",
+    "instance": "testroleinstance"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "instrumentation": {
+    "jdbc": {
+      "captureQueryParameters": true,
+      "masking": {
+        "enabled": false
+      }
+    }
+  },
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "strict",
+          "spanNames": ["SELECT testdb.abc"]
+        },
+        "actions": [
+          {
+            "key": "db.query.parameter.0",
+            "fromAttribute": "db.query.parameter.0",
+            "action": "insert"
+          }
+        ],
+        "id": "jdbc/queryParameters"
+      }
+    ]
+  }
+}

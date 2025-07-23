@@ -597,6 +597,17 @@ class ConfigurationTest {
   }
 
   @Test
+  void shouldOverrideInstrumentationJdbcCaptureQueryParameters() throws IOException {
+    envVars.put("APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_CAPTUREQUERYPARAMETERS", "true");
+
+    Configuration configuration = loadConfiguration();
+    ConfigurationBuilder.overlayFromEnv(
+        configuration, Paths.get("."), this::envVars, this::systemProperties);
+
+    assertThat(configuration.instrumentation.jdbc.captureQueryParameters).isTrue();
+  }
+
+  @Test
   void shouldOverrideInstrumentationJmsEnabled() throws IOException {
     envVars.put("APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED", "false");
 

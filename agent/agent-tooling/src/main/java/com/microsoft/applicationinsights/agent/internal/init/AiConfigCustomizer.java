@@ -234,6 +234,9 @@ public class AiConfigCustomizer implements Function<ConfigProperties, Map<String
       if (!config.instrumentation.jdbc.masking.enabled) {
         properties.put("otel.instrumentation.jdbc.statement-sanitizer.enabled", "false");
       }
+      if (config.instrumentation.jdbc.captureQueryParameters) {
+        properties.put("otel.instrumentation.jdbc.capture-query-parameters", "true");
+      }
     }
     if (config.instrumentation.jms.enabled) {
       properties.put("otel.instrumentation.jms.enabled", "true");
