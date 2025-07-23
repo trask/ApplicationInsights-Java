@@ -69,7 +69,10 @@ val DEPENDENCIES = listOf(
   "io.opentelemetry.contrib:opentelemetry-jfr-connection:${otelContribVersion}-alpha",
   "io.opentelemetry.contrib:opentelemetry-runtime-attach-core:${otelContribVersion}-alpha",
   "com.google.code.findbugs:jsr305:3.0.2",
-  "com.github.spotbugs:spotbugs-annotations:4.9.3"
+  "com.github.spotbugs:spotbugs-annotations:4.9.3",
+  // Security updates for CVEs
+  "com.nimbusds:nimbus-jose-jwt:10.3", // CVE-2025-53864 fix
+  "io.projectreactor.netty:reactor-netty-http:1.2.8" // CVE-2025-22227 fix
 )
 
 javaPlatform {
