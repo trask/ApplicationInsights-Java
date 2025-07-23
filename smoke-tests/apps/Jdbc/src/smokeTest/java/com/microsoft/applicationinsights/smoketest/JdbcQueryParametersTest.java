@@ -29,6 +29,10 @@ class JdbcQueryParametersTest {
     assertThat(telemetry.rdd1.getData()).isEqualTo("select * from abc where xyz = ?");
     assertThat(telemetry.rdd1.getType()).isEqualTo("SQL");
     assertThat(telemetry.rdd1.getTarget()).isEqualTo("hsqldb | testdb");
+    
+    // Debug: print all properties to see what we actually have
+    System.out.println("DEBUG: RDD properties: " + telemetry.rdd1.getProperties());
+    
     // Query parameters should be captured when captureQueryParameters is enabled
     assertThat(telemetry.rdd1.getProperties()).containsEntry("db.query.parameter.0", "y");
     assertThat(telemetry.rdd1.getSuccess()).isTrue();

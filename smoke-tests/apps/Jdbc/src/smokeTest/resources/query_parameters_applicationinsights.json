@@ -8,7 +8,10 @@
   },
   "instrumentation": {
     "jdbc": {
-      "captureQueryParameters": true
+      "captureQueryParameters": true,
+      "masking": {
+        "enabled": false
+      }
     }
   }
 }
