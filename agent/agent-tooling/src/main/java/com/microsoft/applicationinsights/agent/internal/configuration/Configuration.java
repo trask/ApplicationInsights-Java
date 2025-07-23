@@ -233,6 +233,7 @@ public class Configuration {
   public static class DatabaseInstrumentationWithMasking {
     public boolean enabled = true;
     public DatabaseMaskingConfiguration masking = new DatabaseMaskingConfiguration();
+    public boolean captureQueryParameters = false;
   }
 
   public static class DatabaseMaskingConfiguration {
