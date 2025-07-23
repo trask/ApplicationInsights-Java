@@ -578,6 +578,11 @@ public class ConfigurationBuilder {
             "APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED",
             config.instrumentation.jdbc.enabled,
             envVarsFunction);
+    config.instrumentation.jdbc.captureQueryParameters =
+        overlayWithEnvVar(
+            "APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_CAPTUREQUERYPARAMETERS",
+            config.instrumentation.jdbc.captureQueryParameters,
+            envVarsFunction);
     config.instrumentation.jms.enabled =
         overlayWithEnvVar(
             "APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED",

@@ -24,32 +24,12 @@
         },
         "actions": [
           {
-            "key": "debug.processor.working",
-            "value": "yes",
-            "action": "insert"
-          },
-          {
-            "key": "debug.db.system",
-            "fromAttribute": "db.system",
-            "action": "insert"
-          },
-          {
-            "key": "debug.db.name",
-            "fromAttribute": "db.name",
-            "action": "insert"
-          },
-          {
-            "key": "debug.db.statement",
-            "fromAttribute": "db.statement",
-            "action": "insert"
-          },
-          {
-            "key": "debug.db.query.parameter.0",
+            "key": "db.query.parameter.0",
             "fromAttribute": "db.query.parameter.0",
             "action": "insert"
           }
         ],
-        "id": "jdbc/debugAttributes"
+        "id": "jdbc/queryParameters"
       }
     ]
   }
